@@ -3,6 +3,7 @@ from sqlalchemy import select
 
 from app.api.v1.auth import router as auth_router
 from app.api.v1.users import router as users_router
+from app.api.v1.content import router as content_router
 from app.db.base import Base
 from app.db.session import engine, AsyncSessionLocal
 from app.db.models.role import Role
@@ -10,10 +11,11 @@ from app.db.models.user import User
 from app.db.models.content import Content
 
 
+
 app = FastAPI()
 app.include_router(auth_router)
 app.include_router(users_router)
-
+app.include_router(content_router)
 
 @app.on_event("startup")
 async def startup():
