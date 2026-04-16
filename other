@@ -1,0 +1,80 @@
+jwt_auth_redis/
+│
+├── app/
+│   │
+│   ├── main.py
+│   │
+│   ├── core/
+│   │   ├── config.py
+│   │   ├── security.py
+│   │   └── redis.py
+│   │
+│   ├── db/
+│   │   ├── base.py
+│   │   ├── session.py
+│   │   └── models/
+│   │       ├── role.py
+│   │       ├── user.py
+│   │       └── content.py
+│   │
+│   ├── schemas/
+│   │   ├── auth.py
+│   │   ├── user.py
+│   │   └── content.py
+│   │
+│   ├── api/
+│   │   ├── deps.py
+│   │   └── v1/
+│   │       ├── auth.py
+│   │       ├── users.py
+│   │       └── content.py
+│   │
+│   ├── services/
+│   │   ├── auth_service.py
+│   │   ├── token_service.py
+│   │   └── content_service.py
+│   │
+│   └── utils/
+│
+├── alembic/
+│   └── versions/
+│
+├── tests/
+│
+├── Dockerfile
+├── docker-compose.yml
+├── requirements.txt
+├── .env.example
+├── alembic.ini
+└── README.md
+
++------------------+
+|      roles       |
++------------------+
+| id               |
+| name             |
++------------------+
+         |
+         | 1
+         |
+         | M
++------------------+
+|      users       |
++------------------+
+| id               |
+| email            |
+| hashed_password  |
+| is_active        |
+| role_id          |
+| created_at       |
++------------------+
+
++------------------+
+|     content      |
++------------------+
+| id               |
+| title            |
+| body             |
+| access_level     |
+| created_at       |
++------------------+
